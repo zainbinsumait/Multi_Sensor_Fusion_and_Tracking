@@ -38,6 +38,8 @@
     3) [Similar RRT algorithm](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-similar-rrt-algorithm)
 
  8. [Conclusion](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#conclusion)
+ 9. [Demonstration](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#conclusion)
+ 
 
 
 
@@ -376,3 +378,38 @@ With this position and the robot and target position we can apply the algorithm 
 Controlling a robot in an unknown environment add more challenge to the control system and to the detection. Detecting the robot will not be as easy as while using the aruco marker. Moving the robot in a rugged terrain needs a robust control system that takes in consideration the tough surface and the sliding of the wheels. We can use a deep learning algorithm to detect the robot and the target. Using a CNN models to detect the robot without a marker in almost all the situation depending on how strong the model is.
 
 The project allowed us to take on hand several important robotic skills, image processing, visual servoing, path planning, interpretation of the result, frame transformation, and soft skills as well.
+
+
+# Demonstration
+
+**Parking Without obstacles:**
+
+
+https://user-images.githubusercontent.com/43727159/206853887-e0a0aa30-913d-4b7c-89eb-f56f0b196f90.mp4
+
+
+
+https://user-images.githubusercontent.com/43727159/206853959-fd041a00-e6d3-49f9-926e-ec02b2816d9f.mp4
+
+
+
+**Obstacles Avoidance:**
+
+
+
+
+https://user-images.githubusercontent.com/43727159/206853936-a48d6ba8-54bc-4174-87c4-032a69ff4974.mp4
+
+
+
+https://user-images.githubusercontent.com/43727159/206853965-2b47aea3-517e-421b-910f-23348d9536c1.mp4
+
+
+
+
+
+
+
+
+
+
