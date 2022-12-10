@@ -178,12 +178,14 @@ Here, we considered that our problem is always a 2D problem. The robot will move
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image031.png)
 
 ## 2.    3D pose estimation
+![image](https://user-images.githubusercontent.com/43727159/206852574-c65ec173-5885-4718-830b-26e7e0ff9fe9.png)
 
 A real-world problem is a 3D problem, because of the real condition of the workspace. So, a 3D position is necessary to move the robot in an efficient way. To have this 3D position we can use another OpenCV function “estimatePoseSingleMarkers”
 
 This function takes in input:  the corners of the marker, the marker size (in cm), the camera matrix and the distortion coefficients of the camera.  And it returns rotation vector and a translation vector (x,y,z) of a marker.
 
 ![](https://user-images.githubusercontent.com/76461363/206848984-defa72d0-ed6a-4153-bbb6-c538a01ccd5a.png)
+
 Using this information, a transformation matrix can be calculated by computing the rotation matrix from the rotation vector (using Rodriguez function) and then build the transformation matrix.
 
 Using two aruco markers with different ID, we can identify the current robot and the target position in real-time. This method has two advantages:
