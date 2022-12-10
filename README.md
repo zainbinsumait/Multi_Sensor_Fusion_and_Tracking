@@ -1,6 +1,6 @@
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
 
-# Table des matières:
+# TABLES OF CONTENTS:
 
 
  1. [Introduction](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
