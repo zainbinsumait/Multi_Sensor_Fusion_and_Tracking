@@ -3,9 +3,9 @@
 # Table des matières:
 
 
-[Introduction: 3](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
+[Introduction:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
 
-[Camera Calibration: 4](#_Toc120888957)
+[2) Camera Calibration: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
 
 [Detection and pose estimation. 7](#_Toc120888958)
 
