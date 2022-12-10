@@ -90,9 +90,9 @@ $Suv$: which reflects the potential non-orthogonality of rows and columns of ele
 
 ![image](https://user-images.githubusercontent.com/43727159/206852295-a13fe862-3d15-4ae4-93f8-12f7f6c37818.png)
 
-**_R3x3_**: which is the rotation matrix allowing to pass from the reference frame linked to the working space to the reference frame linked to the camera.
+$R3x3$: which is the rotation matrix allowing to pass from the reference frame linked to the working space to the reference frame linked to the camera.
 
-_tx ty tz_: which are the components of the translation vector allowing to pass from the reference frame linked to the working space to the reference frame linked to the camera.
+$tx ty tz$: which are the components of the translation vector allowing to pass from the reference frame linked to the working space to the reference frame linked to the camera.
 
 In total, there are 12 parameters to be estimated (the rotation matrix R contains 9 elements, but the relation that defines it as a rotation matrix R. RT = 1 reduces the number of independent elements to 3: the 3 polar angles).
 
