@@ -3,9 +3,9 @@
 # Table des matières:
 
 
- 1. [Introduction:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
+ 1. [Introduction](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
 
- 2. [Camera Calibration: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
+ 2. [Camera Calibration](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
 
  3. [Detection and pose estimation](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#detection-and-pose-estimation)
 
@@ -23,13 +23,13 @@
 
     1) [ What is ROS: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-what-is-ros)
 
-    2) [ What is the publisher and Subscriber:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-what-is-the-publisher-and-subscriber)
+    2) [ What is the publisher and Subscriber](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-what-is-the-publisher-and-subscriber)
 
-    3) [Launch the Robot:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-launch-the-robot)
+    3) [Launch the Robot](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-launch-the-robot)
 
-    4) [Launch the Camera: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#4-launch-the-camera)
+    4) [Launch the Camera](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#4-launch-the-camera)
 
- 7. [Obstacle avoidance.](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#obstacle-avoidance)
+ 7. [Obstacle avoidance](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#obstacle-avoidance)
 
     1) [Obstacle detection](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-obstacle-detection)
 
@@ -62,9 +62,9 @@ To solve our problem, we have divided the spots as objectives as can be seen in 
 
 ·        Obstacle avoidance
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png)
+![](https://user-images.githubusercontent.com/76461363/206848388-45c6d0bb-b566-4624-8acb-7dbebc14adbc.png)
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image008.png)
+![](https://user-images.githubusercontent.com/76461363/206848522-87638424-25fb-4ea0-b68d-5973452a468b.png)
 
 # Camera Calibration:
 
@@ -72,11 +72,10 @@ Camera Calibration is the process of estimating the intrinsic and extrinsic para
 
 **This is the first step we must take before doing anything else.**
 
-![Une image contenant texte, horloge
-Description générée automatiquement](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)
+![](https://user-images.githubusercontent.com/76461363/206848564-6d615ea7-130a-4955-9420-ed19bc3ba407.png | width=100)
 
-![Une image contenant texte, horloge
-Description générée automatiquement](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image011.jpg)**The intrinsic parameters are:**
+![](https://user-images.githubusercontent.com/76461363/206848672-9af177ee-715b-492c-9d05-796672afff5e.png | width=100)
+**The intrinsic parameters are:**
 
 _f_: the focal length.
 
@@ -88,8 +87,7 @@ _Suv:_ which reflects the potential non-orthogonality of rows and columns of ele
 
 **The extrinsic parameters are:**
 
-![Une image contenant texte, horloge
-Description générée automatiquement](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg)
+![](https://user-images.githubusercontent.com/76461363/206848708-e36be739-bb3e-47b1-bfdb-e29391cff67b.png)
 
 **_R3x3_**: which is the rotation matrix allowing to pass from the reference frame linked to the working space to the reference frame linked to the camera.
 
@@ -98,7 +96,7 @@ _tx ty tz_: which are the components of the translation vector allowing to pass 
 In total, there are 12 parameters to be estimated (the rotation matrix R contains 9 elements, but the relation that defines it as a rotation matrix R. RT = 1 reduces the number of independent elements to 3: the 3 polar angles).
 
 **Example of camera calibration (Distortion Elimination):**
-
+![](https://user-images.githubusercontent.com/76461363/206848758-15ceecfe-e786-4db3-91c4-67c49b81de3f.png)
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image014.png)
 
 **Code Source:**
@@ -107,15 +105,23 @@ we calibrate the camera with two methods, the first one we build a code using so
 
 We have used a chessboard 7x5 for the calibration.
 
-![Text Box: #   To Find the chess board corners
-ret, corners = cv.findChessboardCorners(gray, (7,5), None)](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image015.png)
+```python
+#To Find the chess board corners
+ret, corners = cv.findChessboardCorners(gray, (7,5), None)
+
+```
 
 we define Criteria (the maximum number of iterations and/or the desired accuracy), we use it for Detecting corner’s location in subpixels, in our case we made:
 
-![Text Box: criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 30, 0.001)
-corners2 = cv.cornerSubPix(gray,corners, (11,11), (-1,-1), criteria)](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image016.png)
+```python
+criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 30, 0.001)
+corners2 = cv.cornerSubPix(gray,corners, (11,11), (-1,-1), criteria)
+```
 
-To generate the camera calibration there is a function of OpenCV **CalibrateCamera**, where we pass on it the object point (7*5x3), and the corners of the images contain the chessboard.![Text Box: _, mtx, dist,_,_ = cv.calibrateCamera(objpoints, imgpoints, gray.shape[::-1],None,None)](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image017.png)
+To generate the camera calibration there is a function of OpenCV **CalibrateCamera**, where we pass on it the object point (7*5x3), and the corners of the images contain the chessboard.!
+```python
+_, mtx, dist,_,_ = cv.calibrateCamera(objpoints, imgpoints, gray.shape[::-1],None,None)
+```
 
 The function generates for us the camera matrix and distortion parameters and the translations and rotations on each image.
 
@@ -123,11 +129,14 @@ The function generates for us the camera matrix and distortion parameters and th
 
 we find the following results for our camera; we save it in a yaml file using the command:
 
+![](https://user-images.githubusercontent.com/76461363/206848928-91125865-05bf-4027-9433-5eae101e58d4.png)
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image019.png)
 
 We save these parameters in a yaml file using this command:
 
-![Text Box: yaml.dump(cal_data,f)](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image020.png)
+```python
+yaml.dump(cal_data,f)
+```
 
 **2nd Method:**
 
@@ -137,11 +146,13 @@ And it generates a zip file with all the images taken during the calibration and
 
 To run this command in terminal:
 
-![Text Box: rosrun camera_calibration cameracalibrator.py --size 7x5 --square 0.12 image:=/camera/image_raw camera:=/camera](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image021.png)
+```terminal
+rosrun camera_calibration cameracalibrator.py --size 7x5 --square 0.12 image:=/camera/image_raw camera:=/camera
+```
 
 **Result:**
 
-we find the following results for our camera. ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image023.png)
+we find the following results for our camera. ![](https://user-images.githubusercontent.com/76461363/206848934-9e2b89cc-abe8-433c-8ff3-188b27e97740.png)
 
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image026.png)
 
@@ -153,12 +164,14 @@ There are several methods to detect the pose using the camera for example Qrcode
 
 In our case we used an aruco marker attached to the top of the robot, we used the aruco library of OpenCV to simplify the detection. Then, two methods were tested to extract the correct position of the aruco as well as its orientation.
 
+![](https://user-images.githubusercontent.com/76461363/206848967-f82fab51-d3bc-45bb-a5c6-13a9c39b9809.png)
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image028.png)
 
 ## 1.    Approximation 2D without pose estimation
 
 Here, we considered that our problem is always a 2D problem. The robot will move in x and y direction without considering the depth. In this approximation, the calibration matrix is not required. We directly detect the aruco markers in the camera using a simple python function given by OpenCV “aruco.detectMarkers” returns the position in the image (in pixel) of the 4 corners of the marker in order. We create a function called get_pose(img) in utils.py, this function includes the detectMarkers function, and it return the position of the center (x,y) of the marker and its orientation by calculating the orientation angle of the line between two points of the 4 corners of the marker  : arctan(Δy/Δx). After having the position and the orientation of the marker (current position of the robot and of the target), we calculate the transformation matrix for both positions. following this formula:
 
+![](https://user-images.githubusercontent.com/76461363/206848977-c2432719-3bb4-43b4-9b8b-29c865d16f93.png)
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image029.png)
 
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image031.png)
@@ -169,8 +182,8 @@ A real-world problem is a 3D problem, because of the real condition of the works
 
 This function takes in input:  the corners of the marker, the marker size (in cm), the camera matrix and the distortion coefficients of the camera.  And it returns rotation vector and a translation vector (x,y,z) of a marker.
 
-![Une image contenant texte, horloge
-Description générée automatiquement](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image032.jpg)Using this information, a transformation matrix can be calculated by computing the rotation matrix from the rotation vector (using Rodriguez function) and then build the transformation matrix.
+![](https://user-images.githubusercontent.com/76461363/206848984-defa72d0-ed6a-4153-bbb6-c538a01ccd5a.png)
+Using this information, a transformation matrix can be calculated by computing the rotation matrix from the rotation vector (using Rodriguez function) and then build the transformation matrix.
 
 Using two aruco markers with different ID, we can identify the current robot and the target position in real-time. This method has two advantages:
 
@@ -180,19 +193,21 @@ Using two aruco markers with different ID, we can identify the current robot and
 
 # Frame transformation
 
-![Coordinate Transformation](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image034.jpg)  
 In this step, two transformation matrices are available, one for the current position, and the other for the target position in the camera frame. The objective is to get the target position in the robot frame, so we have all the coordinates and the angles in this frame.
+
+![](https://user-images.githubusercontent.com/76461363/206848991-c9a72058-010f-4575-a4a0-cb51decc598e.png)
 
 Supposing that: The transformation matrix from the target to the camera is Tcamera_target, and the transformation matrix to the robot is Tcamera_robot, so the Transformation matrix from the target to the robot :  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image036.png)  
 
 To do so, we need to combine these two matrices by multiplying the inverse of the current transformation matrix of the robot by the target transformation matrix to receive the combined transformation matrix (t) which is called:
 
-![Diagram
-Description automatically generated with medium confidence](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image038.jpg)
+![](https://user-images.githubusercontent.com/76461363/206848993-bd079be2-cb68-4bbf-a315-ebc8a080d4b9.png)
 
 In python we did that using the following code:
 
-![Text Box: np.linalg.inv(Robot_matrix_transformation).dot(Target_matrix_transformation)](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image039.png)
+```python
+np.linalg.inv(Robot_matrix_transformation).dot(Target_matrix_transformation)
+```
 
 # Control system
 
