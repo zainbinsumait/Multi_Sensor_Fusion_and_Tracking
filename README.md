@@ -46,9 +46,9 @@
 
 During the Multi-Sensor Fusion and Tracking module we had a project to realize, the goal of this project is to control a 2-wheel mobile robot "Turtlubot3" under ROS melodic from an UEYE-camera using the configuration (Eye-to-hand):
 
-·        The first objective is to move the robot from an initial position to a Target position considering the target orientation (Parking).
+*   The first objective is to move the robot from an initial position to a Target position considering the target orientation (Parking).
 
-·        The second objective is to do the same thing as task 1 but with obstacles, the task of the robot is to avoid these obstacles (in our case we used buckets of a red color) and reach the target.
+*   The second objective is to do the same thing as task 1 but with obstacles, the task of the robot is to avoid these obstacles (in our case we used buckets of a red color) and reach the target.
 
 To solve our problem, we have divided the spots as objectives as can be seen in figure 1:
 
