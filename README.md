@@ -3,43 +3,44 @@
 # Table des matières:
 
 
-[Introduction:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
+ 1. [Introduction:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
 
-[2) Camera Calibration: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
+ 2. [Camera Calibration: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
 
-[Detection and pose estimation. 7](#_Toc120888958)
+ 3. [Detection and pose estimation](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#detection-and-pose-estimation)
 
-[1.      Approximation 2D without pose estimation. 8](#_Toc120888959)
+   1) [ Approximation 2D without pose estimation](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-approximation-2d-without-pose-estimation)
 
-[2.      3D pose estimation. 8](#_Toc120888960)
+   2) [3D pose estimation](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-3d-pose-estimation)
 
-[Frame transformation. 9](#_Toc120888961)
+ 4. [Frame transformation](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#frame-transformation)
 
-[Control system.. 10](#_Toc120888962)
+ 5. [Control system](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#control-system)
 
-[Simulation to test the control system.. 10](#_Toc120888963)
+    * [Simulation to test the control system](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#control-system)
 
-[Integration of ROS. 11](#_Toc120888964)
+ 6. [Integration of ROS ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#integration-of-ros)
 
-[1.      What is ROS: 11](#_Toc120888965)
+    1) [ What is ROS: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-what-is-ros)
 
-[2.      What is the publisher and Subscriber: 11](#_Toc120888966)
+    2) [ What is the publisher and Subscriber:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-what-is-the-publisher-and-subscriber)
 
-[3.      Launch the Robot: 12](#_Toc120888967)
+    3) [Launch the Robot:](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-launch-the-robot)
 
-[4.      Launch the Camera: 13](#_Toc120888968)
+    4) [Launch the Camera: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#4-launch-the-camera)
 
-[Obstacle avoidance. 13](#_Toc120888969)
+ 7. [Obstacle avoidance.](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#obstacle-avoidance)
 
-[1.      Obstacle detection. 13](#_Toc120888970)
+    1) [Obstacle detection](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-obstacle-detection)
 
-[2.      The algorithm developed. 14](#_Toc120888971)
+    2) [The algorithm developed](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-the-algorithm-developed)
 
-[3.      Similar RRT algorithm.. 15](#_Toc120888972)
+    3) [Similar RRT algorithm](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-similar-rrt-algorithm)
 
-[Conclusion. 18](#_Toc120888973)
+ 8. [Conclusion](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#conclusion)
 
-  
+
+
 
 # Introduction:
 
