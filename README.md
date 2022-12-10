@@ -234,7 +234,10 @@ To move the TurtleBot, we need to send the order in a form of value of speed. 3 
 
 To reduce the distance, a forward movement toward the target is required. So, a forward speed and a direction must be calculated. Two parameters are responsible (α and $\rho$).
 
-The forward speed is:![image](https://user-images.githubusercontent.com/43727159/206851451-6562914c-1cd9-4727-a0b6-9080a9d5bf44.png) with rotational speed of![image](https://user-images.githubusercontent.com/43727159/206851464-54ad71da-0691-4e3a-8ffc-ec521ac12e9b.png)
+The forward speed is:
+![image](https://user-images.githubusercontent.com/43727159/206851451-6562914c-1cd9-4727-a0b6-9080a9d5bf44.png)
+with the rotational speed of:
+![image](https://user-images.githubusercontent.com/43727159/206851464-54ad71da-0691-4e3a-8ffc-ec521ac12e9b.png)
 
 
 To park the robot in the same orientation as the target, the third parameter (beta) should be reduced. For that we add another element to the rotational speed, and it becomes:
