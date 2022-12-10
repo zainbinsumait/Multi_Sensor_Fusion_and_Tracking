@@ -72,11 +72,11 @@ Camera Calibration is the process of estimating the intrinsic and extrinsic para
 
 **This is the first step we must take before doing anything else.**
 
-![](![image](https://user-images.githubusercontent.com/43727159/206852163-db5e23dd-d242-49f8-90c0-682c7b1c17fe.png) | width=100)
+(![image](https://user-images.githubusercontent.com/43727159/206852163-db5e23dd-d242-49f8-90c0-682c7b1c17fe.png)
 
 **The intrinsic parameters are:**
 
-![](![image](https://user-images.githubusercontent.com/43727159/206852180-c4432ae5-21d3-4d3b-82b4-fb54dc0b307b.png) | width=100)
+(![image](https://user-images.githubusercontent.com/43727159/206852180-c4432ae5-21d3-4d3b-82b4-fb54dc0b307b.png)
 
 _f_: the focal length.
 
@@ -88,7 +88,7 @@ _Suv:_ which reflects the potential non-orthogonality of rows and columns of ele
 
 **The extrinsic parameters are:**
 
-![](![image](https://user-images.githubusercontent.com/43727159/206852200-0866977a-1aa8-41d6-8cf6-e995c02f98b9.png)| width=100)
+(![image](https://user-images.githubusercontent.com/43727159/206852200-0866977a-1aa8-41d6-8cf6-e995c02f98b9.png)
 
 **_R3x3_**: which is the rotation matrix allowing to pass from the reference frame linked to the working space to the reference frame linked to the camera.
 
