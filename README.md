@@ -261,7 +261,7 @@ With four different initial positions, [0,0], [20,0], [0,20], [20,20], and the i
 
 Gain values:![image](https://user-images.githubusercontent.com/43727159/206851586-fae147e2-7b3f-4d15-89e4-9b3d607762a7.png) we obtain the following trajectory graph. Noting that the gain gives importance to the parameter; giving 3.5 as a value for beta gives the parking task more importance than the 2.5 value (in absolute value).
 
-![image](https://user-images.githubusercontent.com/43727159/206851604-1505065c-3bd3-4fe2-8960-f864965ff125.png)
+![image](https://user-images.githubusercontent.com/43727159/206853185-fefb8433-1748-41a7-9bed-76a11054e9d8.png)
 
 
 The trajectory obtained is not optimist for all the positions, which can be explained by the fact that in this simulation the robot is not taking on consideration it’s orientation correctly as the real world.
@@ -288,21 +288,23 @@ The robot is already delivered with all the necessary ROS packages, otherwise yo
 
 To launch the robot in the terminal, write these commands:
 
-![Text Box: Roscore
-Ssh ubuntu@192.168.0.200 “the password is napelturbot”
-roslaunch turtlebot3_bringup turtlebot3_robot. launch](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image073.png)
+```terminal
+ssh ubuntu@192.168.0.200 “the password is napelturbot”
+roslaunch turtlebot3_bringup turtlebot3_robot. launch]
+```
 
 Till now we started these topics on our robot:
 
-![Une image contenant texte
-Description générée automatiquement](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image075.png)
+![image](https://user-images.githubusercontent.com/43727159/206853232-487c80a6-211c-46fa-8bfc-7a901e5772f9.png)
+
 
 ## 4.    Launch the Camera:
 
 To publish our code in the robot, we must get the topics of the camera first; for that there is already Ros packages of the Ueye-camera by installing them from: [https://github.com/anqixu/ueye_cam](https://github.com/anqixu/ueye_cam)
 
-![Text Box: Roslaunch ueye_cam rgb8.launch](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image076.png)
-
+```terminal
+roslaunch ueye_cam rgb8.launch
+```
 ## Move the robot
 
 This step is to publish the speed calculated by publishing it on the robot’s topic “cmd_vel”. A servoing closed loop that gets the real time image, calculates the velocity, and sends it to the robot by a frequency of 50 Hz. The robot receives the instruction and goes to the target. The robot stops when the distance between the current and the target is about 40 pixels or (40/f)*Z = 5.6 cm (where f is the focal length and Z is the distance to the camera). And for the parking we added another condition to adjust the angle θ, so the robot has the same orientation as the target.
