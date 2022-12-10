@@ -241,20 +241,17 @@ The speeds are calculated then sent every (1/50) seconds to the robot using ROS.
 ## Simulation to test the control system
 
 Simulate the control system using python code, by simulate a robot position which updates its position every time the speed is calculated. The next position is calculated by these equations:
+![image](https://user-images.githubusercontent.com/43727159/206851571-051d74ed-12a9-472a-91eb-04fb504be304.png)
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image061.png)
-
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image063.png)
-
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image065.png)
 
 The operation is repeated in a loop until the distance becomes less than 0.01 unit.
 
 With four different initial positions, [0,0], [20,0], [0,20], [20,20], and the initial orientation of 0° degree. The target position is [10,10] and the orientation of 180° degrees.
 
-Gain values: ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image067.png) we obtain the following trajectory graph. Noting that the gain gives importance to the parameter; giving 3.5 as a value for beta gives the parking task more importance than the 2.5 value (in absolute value).
+Gain values:![image](https://user-images.githubusercontent.com/43727159/206851586-fae147e2-7b3f-4d15-89e4-9b3d607762a7.png) we obtain the following trajectory graph. Noting that the gain gives importance to the parameter; giving 3.5 as a value for beta gives the parking task more importance than the 2.5 value (in absolute value).
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image070.png)
+![image](https://user-images.githubusercontent.com/43727159/206851604-1505065c-3bd3-4fe2-8960-f864965ff125.png)
+
 
 The trajectory obtained is not optimist for all the positions, which can be explained by the fact that in this simulation the robot is not taking on consideration it’s orientation correctly as the real world.
 
@@ -272,7 +269,7 @@ A ROS Node can be a Publisher or a Subscriber. A Publisher is the one puts the m
 
 Note that a publisher can publish to one or more Topic and a Subscriber can subscribe to one or more Topic. Also, publishers and subscribers are not aware of each other’s existence. The idea is to decouple the production of information from its consumption and all the IP addresses of various nodes are tracked by the ROS Master.
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image072.jpg)
+![image](https://user-images.githubusercontent.com/43727159/206851623-c98a45f6-8493-4060-8970-8de6c580491a.png)
 
 ## 3.    Launch the Robot:
 
