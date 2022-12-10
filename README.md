@@ -200,7 +200,7 @@ In this step, two transformation matrices are available, one for the current pos
 
 ![](https://user-images.githubusercontent.com/76461363/206848991-c9a72058-010f-4575-a4a0-cb51decc598e.png)
 
-Supposing that: The transformation matrix from the target to the camera is $**Tcamera_target**$, and the transformation matrix to the robot is $**Tcamera_robot**$, so the Transformation matrix from the target to the robot:
+Supposing that: The transformation matrix from the target to the camera is **Tcamera_target**, and the transformation matrix to the robot is **Tcamera_robot**, so the Transformation matrix from the target to the robot:
 
 ![image](https://user-images.githubusercontent.com/43727159/206852789-316950e0-e986-4d2e-bbd3-5b4f7c92b31e.png)
 
