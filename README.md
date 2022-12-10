@@ -78,13 +78,13 @@ Camera Calibration is the process of estimating the intrinsic and extrinsic para
 
 ![image](https://user-images.githubusercontent.com/43727159/206852180-c4432ae5-21d3-4d3b-82b4-fb54dc0b307b.png)
 
-_f_: the focal length.
+$f$: the focal length.
 
-_Ku, Kv_: the image magnification factors.
+$Ku, Kv$: the image magnification factors.
 
-_Cu, Cv:_ the coordinates of the projection of the optical center of the camera on the image plane.
+$Cu, Cv$: the coordinates of the projection of the optical center of the camera on the image plane.
 
-_Suv:_ which reflects the potential non-orthogonality of rows and columns of electronic cells that make up the camera sensor. Most of the time, this parameter is neglected and therefore takes a zero value.
+$Suv$: which reflects the potential non-orthogonality of rows and columns of electronic cells that make up the camera sensor. Most of the time, this parameter is neglected and therefore takes a zero value.
 
 **The extrinsic parameters are:**
 
