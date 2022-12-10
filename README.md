@@ -214,24 +214,27 @@ np.linalg.inv(Robot_matrix_transformation).dot(Target_matrix_transformation)
 To move the TurtleBot, we need to send the order in a form of value of speed. 3 linear speeds and 3 rotational speeds in xyz axis. Corresponding to the number of degrees of freedom that we have on our robot (1 on x axis, 1 on y axis and 1 for the rotation around the z axis), two linear speeds (in respect of x and y) and one rotational speed (z) are given to the robot to move to a position. Consequently, we need to calculate these speeds first and then send it to the robot. The concept is to reduce the difference between the initial position and the target position. The difference includes the distance between them and the gap between their orientations.
 
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image041.jpg)The distance between the two positions: ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image043.png)
+![image](https://user-images.githubusercontent.com/43727159/206851354-833e3395-a2a4-4cd7-bfd6-09090361df3e.png)
 
 The angle between the orientation of the robot and the target (θ):
 
- ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image045.png)
+ ![image](https://user-images.githubusercontent.com/43727159/206851373-d56e05a6-f90b-489f-82e1-c2c86e1de0d0.png)
 
 The angle between the orientation of the robot and the direction of the target (α):
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image047.png)
+![image](https://user-images.githubusercontent.com/43727159/206851401-7e0e0b42-d556-40e2-93f2-6c6180617a1a.png)
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image049.png) = ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image051.png)
+![image](https://user-images.githubusercontent.com/43727159/206851419-c5ac66de-ff03-486e-b193-cd57df2c6800.png)
 
 To reduce the distance, a forward movement toward the target is required. So, a forward speed and a direction must be calculated. Two parameters are responsible (α and ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image053.png)).
 
-The forward speed is:  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image055.png) with rotational speed of ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image057.png)
+The forward speed is:  ![image](https://user-images.githubusercontent.com/43727159/206851451-6562914c-1cd9-4727-a0b6-9080a9d5bf44.png) with rotational speed of ![image](https://user-images.githubusercontent.com/43727159/206851464-54ad71da-0691-4e3a-8ffc-ec521ac12e9b.png)
+
 
 To park the robot in the same orientation as the target, the third parameter (beta) should be reduced. For that we add another element to the rotational speed, and it becomes:
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image059.png)
+![image](https://user-images.githubusercontent.com/43727159/206851467-2df24690-850e-471e-96ea-b7304b39a096.png)
+
 
 The speeds are calculated then sent every (1/50) seconds to the robot using ROS. To have a smooth movement, max speed should be determined which allows also to take in consideration the physical constraint of the vehicle.
 
