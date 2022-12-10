@@ -46,21 +46,21 @@
 
 During the Multi-Sensor Fusion and Tracking module we had a project to realize, the goal of this project is to control a 2-wheel mobile robot "Turtlubot3" under ROS melodic from an UEYE-camera using the configuration (Eye-to-hand):
 
-*   The first objective is to move the robot from an initial position to a Target position considering the target orientation (Parking).
+*   **The first objective is to move the robot from an initial position to a Target position considering the target orientation (Parking).**
 
-*   The second objective is to do the same thing as task 1 but with obstacles, the task of the robot is to avoid these obstacles (in our case we used buckets of a red color) and reach the target.
+*   **The second objective is to do the same thing as task 1 but with obstacles, the task of the robot is to avoid these obstacles (in our case we used buckets of a red color) and reach the target.**
 
 To solve our problem, we have divided the spots as objectives as can be seen in figure 1:
 
-·        Camera calibration
+* **Camera calibration**
 
-·        Pose initial and target robot estimation
+* **Pose initial and target robot estimation**
 
-·        control system
+* **Control system**
 
-·        Integration of ROS
+* **Integration of ROS**
 
-·        Obstacle avoidance
+* **Obstacle avoidance**
 
 ![](https://user-images.githubusercontent.com/76461363/206848388-45c6d0bb-b566-4624-8acb-7dbebc14adbc.png)
 
@@ -190,9 +190,9 @@ Using this information, a transformation matrix can be calculated by computing t
 
 Using two aruco markers with different ID, we can identify the current robot and the target position in real-time. This method has two advantages:
 
-·        3D position, which allows to solve a 3D navigation.
+* **3D position, which allows to solve a 3D navigation.**
 
-·        Detecting the target and the robot in real-time, which allows the robot to reach the target even if the target is moving (dynamic control).
+* **Detecting the target and the robot in real-time, which allows the robot to reach the target even if the target is moving (dynamic control).**
 
 # Frame transformation
 
