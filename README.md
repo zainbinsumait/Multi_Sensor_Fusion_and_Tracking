@@ -213,7 +213,8 @@ np.linalg.inv(Robot_matrix_transformation).dot(Target_matrix_transformation)
 
 To move the TurtleBot, we need to send the order in a form of value of speed. 3 linear speeds and 3 rotational speeds in xyz axis. Corresponding to the number of degrees of freedom that we have on our robot (1 on x axis, 1 on y axis and 1 for the rotation around the z axis), two linear speeds (in respect of x and y) and one rotational speed (z) are given to the robot to move to a position. Consequently, we need to calculate these speeds first and then send it to the robot. The concept is to reduce the difference between the initial position and the target position. The difference includes the distance between them and the gap between their orientations.
 
-**The distance between the two positions: $\rho$**
+**The distance between the two positions $\rho$:**
+
 ![image](https://user-images.githubusercontent.com/43727159/206851354-833e3395-a2a4-4cd7-bfd6-09090361df3e.png)
 
 **The angle between the orientation of the robot and the target (θ):** 
