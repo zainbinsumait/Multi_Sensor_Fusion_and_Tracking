@@ -94,7 +94,7 @@ $R3x3$: which is the rotation matrix allowing to pass from the reference frame l
 
 $tx, ty, tz$: which are the components of the translation vector allowing to pass from the reference frame linked to the working space to the reference frame linked to the camera.
 
-In total, there are 12 parameters to be estimated (the rotation matrix R contains 9 elements, but the relation that defines it as a rotation matrix R. RT = 1 reduces the number of independent elements to 3: the 3 polar angles).
+In total, there are 12 parameters to be estimated (the rotation matrix R contains 9 elements, but the relation that defines it as a rotation matrix **R. RT = 1** reduces the number of independent elements to 3: the 3 polar angles).
 
 **Example of camera calibration (Distortion Elimination):**
 ![](https://user-images.githubusercontent.com/76461363/206848758-15ceecfe-e786-4db3-91c4-67c49b81de3f.png)
