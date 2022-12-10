@@ -290,7 +290,7 @@ To launch the robot in the terminal, write these commands:
 
 ```terminal
 ssh ubuntu@192.168.0.200 “the password is napelturbot”
-roslaunch turtlebot3_bringup turtlebot3_robot. launch]
+roslaunch turtlebot3_bringup turtlebot3_robot. launch
 ```
 
 Till now we started these topics on our robot:
@@ -309,8 +309,7 @@ roslaunch ueye_cam rgb8.launch
 
 This step is to publish the speed calculated by publishing it on the robot’s topic “cmd_vel”. A servoing closed loop that gets the real time image, calculates the velocity, and sends it to the robot by a frequency of 50 Hz. The robot receives the instruction and goes to the target. The robot stops when the distance between the current and the target is about 40 pixels or (40/f)*Z = 5.6 cm (where f is the focal length and Z is the distance to the camera). And for the parking we added another condition to adjust the angle θ, so the robot has the same orientation as the target.
 
-![Text
-Description automatically generated](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image078.png)
+![image](https://user-images.githubusercontent.com/43727159/206853336-e69da6be-4a13-4a23-b34a-92463421cf93.png)
 
 # Obstacle avoidance
 
@@ -322,29 +321,30 @@ Numerous of algorithm exist to determine the shortest path like A* and RRT. We c
 
 Detect an object considered as an obstacle needs a computer vision. Depending on the desired result, it can be a simple or a complex detection from shape or colour detection to a deep learning model to detect any object that can be considered as an obstacle. In this project we chose a simple colour detection with a red colour mask to extrait the red objects from the image.
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image081.png)
-
-## 2.    The algorithm developed
+![image](https://user-images.githubusercontent.com/43727159/206853397-ccc994a2-0279-43a7-b09d-fb7feb73d6d4.png)
+## 2.    The algorithm developed
 
 The input image is divided into squares with the same size as the robot in pixels, then we consider the square with red colour pixels as an obstacle square which can’t be added to the path. Next, for each box a cost is calculated by the following equations:
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image083.png)
+![image](https://user-images.githubusercontent.com/43727159/206853415-87f3b812-9225-42c3-b486-7873912d78cd.png)
 
 Where d is the distance from the centre of the square to the target. 
 
-n = ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image085.png) if the square is an obstacle neighbour and n = 0 if not.
+![image](https://user-images.githubusercontent.com/43727159/206853431-29149875-283b-4f86-8cf0-eeaf49f3b155.png) 
+
+if the square is an obstacle neighbour and n = 0 if not.
 
 This equation returns a cost with an inverse relationship to the distance to the target with a bigger value to the obstacle’s neighbour squares, this gives a safety margin to completely avoid the obstacle.
 
 The algorithm steps:
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image087.png)
+![image](https://user-images.githubusercontent.com/43727159/206853442-08476cc0-d84d-4d48-b3a4-ac85c7836d3f.png)
 
 Applying this algorithm in real life gives us the result in the following figure. The path is as far as it can be from the obstacles to have a safe margin, however, it’s not exactly the optimist way. The algorithm can be improved to calculate the total cost of the path and then try another path as what other algorithms do (A star and RRT).  
 
 The path points are then sent to the control system so that the robot reach each point as it’s finale target. Once it reached to the first point it goes to the second until the end of the path.
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image089.png)
+![image](https://user-images.githubusercontent.com/43727159/206853467-6e3b306d-c6be-4720-ba7c-3d055e46f74a.png)
 
 ## 3.    Similar RRT algorithm
 
@@ -354,22 +354,22 @@ Like the RRT process algorithm we try to describe a path that the robot can foll
 
 The RRT algorithm follows the step below.
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image090.png)![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image091.png)![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image093.png)
+![image](https://user-images.githubusercontent.com/43727159/206853486-e88ef055-844d-4110-8124-dbd3a3866676.png)
 
-In first time, around the start point we create a point by using a random vector generate by the goal position and the concept of nearest neighbour. Then we check if this point is not at the position of the obstacle and if it respects the condition due to its distance to the goal position. If this constraint is done, we add it in the path list and restart the process with this point as the start point now. In a small simulation we fixe an obstacle and create the path
+In first time, around the start point we create a point by using a random vector generate by the goal position and the concept of nearest neighbour. Then we check if this point is not at the position of the obstacle and if it respects the condition due to its distance to the goal position. If this constraint is done, we add it in the path list and restart the process with this point as the start point now. In a small simulation we fixe an obstacle and create the path:
 
-![Chart, scatter chart
-Description automatically generated](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image095.png).
+![image](https://user-images.githubusercontent.com/43727159/206853506-76d7e69e-8ef2-4619-a2e0-ee96e6068ce2.png)
 
 In the image in green we have different points created by the algorithm. When the point is close to the obstacle, it creates a new point by respecting the constraint due to its distance from him until the robot arrives at the goal.
 
 Now we apply it on an image. First with an algorithm for colour detection we detect the obstacle, and we extract its position. In this case the position is extracted in pixel.
 
-                  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image097.png)                  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image099.png)
+![image](https://user-images.githubusercontent.com/43727159/206853539-8da94aca-7228-4bfb-ac5e-5a242c5a0504.png)
+
 
 With this position and the robot and target position we can apply the algorithm to have the path that the robot can follow.
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image101.png)              ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image103.png)
+![image](https://user-images.githubusercontent.com/43727159/206853557-59bbc598-00c4-4643-9466-531fdf01ad2c.png)
 
 # Conclusion
 
