@@ -1,4 +1,17 @@
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+## Summary
+
+Multi-sensor fusion and tracking is the process of combining information from multiple sensors to provide a more accurate, reliable, and comprehensive view of a situation or environment. This can be done in real-time, allowing for the tracking of moving objects and the identification of potential threats or obstacles.
+
+In the context of robotics, multi-sensor fusion and tracking can be used to improve navigation and decision-making. For example, a robot equipped with a camera, lidar, and radar sensors can use information from all of these sensors to create a detailed map of its surroundings and track the movement of objects within that environment. This can enable the robot to navigate around obstacles, avoid collisions, and make more informed decisions about its actions.
+
+Multi-sensor fusion and tracking can also be used in other applications, such as surveillance, autonomous vehicles, and aircraft collision avoidance. By combining data from multiple sensors, it is possible to create a more complete picture of a situation and make more accurate predictions about the behavior of objects within that environment. 
+
+**This project was done during the last year of ESIREM Robotics program ( Engineering school in Dijon city - France). **
+
+Teammates : 
+* Zain BIN SUMAIT
+* Mehdi HAHOU
+* Steve Alex TAMO
 
 # TABLES OF CONTENTS:
 
