@@ -6,7 +6,7 @@ In the context of robotics, multi-sensor fusion and tracking can be used to impr
 
 Multi-sensor fusion and tracking can also be used in other applications, such as surveillance, autonomous vehicles, and aircraft collision avoidance. By combining data from multiple sensors, it is possible to create a more complete picture of a situation and make more accurate predictions about the behavior of objects within that environment. 
 
-**This project was done during the last year of ESIREM Robotics program ( Engineering school in Dijon city - France). **
+**This project was done during the last year of ESIREM Robotics program ( Engineering school in Dijon city - France).**
 
 Teammates : 
 * Zain BIN SUMAIT
